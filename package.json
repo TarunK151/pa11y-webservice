@@ -29,7 +29,7 @@
     "cron": "~1.7.1",
     "kleur": "^3.0.3",
     "mongodb": "~2.2.19",
-    "pa11y": "git+https://github.com/TarunK151/pa11y",
+    "pa11y": "git+https://github.com/TarunK151/pa11y.git",
     "underscore": "~1.9.1"
   },
   "devDependencies": {
