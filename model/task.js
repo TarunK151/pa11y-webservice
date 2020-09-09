@@ -102,6 +102,10 @@ module.exports = function(app, callback) {
 				const now = Date.now();
 				const taskEdits = {
 					name: edits.name,
+					tilecolor: edits.tilecolor,
+					textcolor: edits.textcolor,
+					imageurl: edits.imageurl,
+					theme: edits.theme,
 					timeout: parseInt(edits.timeout, 10),
 					wait: parseInt(edits.wait, 10),
 					actions: edits.actions,
@@ -233,9 +237,27 @@ module.exports = function(app, callback) {
 				if (!task) {
 					return null;
 				}
+
+				//populate the values if a theme is set, else default (for tiles)
+				var a,b,c;
+				if(task.theme){
+					let s = task.theme.split('|');
+					a = s[0];
+					b = s[1];
+					c = s[2];
+				}else{
+					a = task.tilecolor;
+					b = task.textcolor;
+					c = task.imageurl;
+				}
+
 				const output = {
 					id: task._id.toString(),
 					name: task.name,
+					tilecolor: a,
+					textcolor: b,
+					imageurl: c,
+					theme: task.theme,
 					url: task.url,
 					timeout: (task.timeout ? parseInt(task.timeout, 10) : 30000),
 					wait: (task.wait ? parseInt(task.wait, 10) : 0),

@@ -92,6 +92,10 @@ module.exports = function(app) {
 				query: {},
 				payload: Joi.object({
 					name: Joi.string().required(),
+					tilecolor: Joi.string().allow(''),
+					textcolor: Joi.string().allow(''),
+					imageurl: Joi.string().allow(''),
+					theme: Joi.string().allow(''),
 					timeout: Joi.number().integer(),
 					wait: Joi.number().integer(),
 					ignore: Joi.array(),
