@@ -54,11 +54,6 @@ module.exports = function(app, callback) {
 			getAll: () => {
 				return collection
 					.find()
-					.sort({
-						name: 1,
-						standard: 1,
-						url: 1
-					})
 					.toArray()
 					.then(tasks => {
 						return tasks.map(model.prepareForOutput);
